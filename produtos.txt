@@ -1,0 +1,6 @@
+000005545 Beterraba 7.99 Legumes 
+123123123 Chá Mate 7.99 Bebidas
+003798334 Energético 10.99 Energéticos 
+000005345 Vitaminico 14.99 Remédios
+000235345 Mussarela 59.99 Padaria 
+000897217 Vinho 29.90 Adega

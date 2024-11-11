@@ -1,0 +1,9 @@
+Banana 8 
+Feijão 18 
+Arroz 10 
+Figado 3 
+Macarrão 12 
+Peixe 6 
+Peixe Boi 6 
+Peixe-Boi 6 
+Peixe-Boi Frances 6 
