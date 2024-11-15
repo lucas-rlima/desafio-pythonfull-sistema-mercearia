@@ -113,4 +113,20 @@ class ProdutoController:
         if counter == 0:
             print('Nenhum produto encontrado com esse código')
 
+            
+    @classmethod
+    def remover(cls):
+        codigo = input('Digite o código do produto a ser removido.  ')
+        arq = ProdutoDao.ler()
+        counter = 0
+        for index, lines in enumerate(arq):
+            if lines.split()[0] == codigo:
+                counter += 1
+                print(arq[index])
+                if input('Confirmar exclusão do produto? S/N  ').lower() == 's':
+                    ProdutoDao.remover(index)
+                    print('Exclusão concluida com sucesso!')
+
+
+ProdutoController.remover()
         

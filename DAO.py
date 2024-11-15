@@ -39,6 +39,15 @@ class ProdutoDao:
         with open('produtos.txt', 'w') as arq:
             arq.writelines(temporario)
 
+    @classmethod
+    def remover(cls, index):
+        with open('produtos.txt', 'r') as arq:
+            temporario = arq.readlines()
+        
+        temporario[index] = ''
+
+        with open('produtos.txt', 'w') as arq:
+            arq.writelines(temporario)
 
 
 
