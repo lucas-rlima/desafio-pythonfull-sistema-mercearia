@@ -128,5 +128,42 @@ class ProdutoController:
                     print('Exclusão concluida com sucesso!')
 
 
-ProdutoController.remover()
-        
+class CategoriaController():
+    @classmethod
+    def salvar(cls):
+        categoria = input('Digite a nova categoria: ')
+        CategoriaDao.salvar(Categoria(categoria))
+        print('Categoria adicionada com sucesso!')
+    
+    @classmethod
+    def ler(cls):
+        arq = CategoriaDao.ler()
+        for lines in arq:
+            print(lines.strip())
+
+    @classmethod
+    def excluir(cls):
+        del_categoria = input('Qual categoria deseja remover do cadastro? ')
+        arq = CategoriaDao.ler()
+        for index, lines in enumerate(arq):
+            if lines.strip().lower() == del_categoria.lower():
+                choice = input(f'Realmente deseja remover {lines.strip().capitalize()} do registo? (S/N)')
+                if choice.lower() == 's':
+                    CategoriaDao.excluir(index)
+                    print('Categoria removida com sucesso!')
+                else:
+                    print('Processo de exclusão cancelada pelo usuário.')
+
+    @classmethod
+    def alterar(cls):
+        alt_categoria = input('Qual Categoria deseja alterar? ')
+        arq = CategoriaDao.ler()
+        counter = 0 
+        for index, lines in enumerate(arq):
+            if lines.strip().lower() == alt_categoria.lower():
+                alteracao = input('Digite a nova categoria: ')
+                CategoriaDao.alterar(alteracao, int(index))
+                counter += 1
+        if counter == 0:
+            print('Categoria não encontrada!')
+CategoriaController.alterar()

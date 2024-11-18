@@ -6,14 +6,28 @@ class CategoriaDao:
         with open('categorias.txt', 'a') as arq:
             arq.write(categoria.categoria + '\n')
     
-    @staticmethod
+    @classmethod
     def ler(cls):
         with open('categorias.txt', 'r') as arq:
             return arq.readlines()
+    @classmethod   
+    def excluir(cls, line):
+        with open('categorias.txt', 'r') as arq:
+            content = arq.readlines()
         
-    def excluir(cls):
-        pass
+        content[line] = ''
 
+        with open('categorias.txt', 'w') as arq:
+            arq.writelines(content)
+
+    @classmethod
+    def alterar(cls,newcontent, index):
+        with open('categorias.txt', 'r') as arq:
+            content = arq.readlines()
+        
+        content[index] = newcontent + '\n'
+        with open('categorias.txt', 'w') as arq:
+            arq.writelines(content)
 
 class ProdutoDao:
 
